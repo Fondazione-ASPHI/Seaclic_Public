@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problemi e domande frequenti — Seaclic</title>
+  <meta name="description" content="Soluzioni ai problemi più comuni con Seaclic e risposte alle domande frequenti.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Navigazione principale">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html">🌅 Seaclic <span>Sunset</span></a>
+    <button class="nav__toggle" aria-label="Apri menu" aria-expanded="false">☰</button>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="guida.html">Guida rapida</a></li>
+      <li><a href="modalita.html">Modalità</a></li>
+      <li><a href="comandi.html">Comandi</a></li>
+      <li><a href="tracking.html">Tracking</a></li>
+      <li><a href="impostazioni.html">Impostazioni</a></li>
+      <li><a href="problemi.html" class="active">Problemi?</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <h1>🔧 Problemi e domande frequenti</h1>
+  <p>Soluzioni ai problemi più comuni e risposte alle domande che riceviamo più spesso.</p>
+</header>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Percorso">
+    <a href="index.html">Home</a> › <strong>Problemi</strong>
+  </nav>
+
+  <!-- ═══ PROBLEMI COMUNI ══════════════════════════════════════ -->
+  <section class="section" id="problemi">
+    <h2>⚠️ Problemi comuni</h2>
+
+    <div class="accordion">
+
+      <details>
+        <summary>Seaclic non mi sente / il microfono non funziona</summary>
+        <div class="acc-body">
+          <p>Controlla questi punti:</p>
+          <ol>
+            <li>
+              <strong>Permessi microfono</strong>: apri le Impostazioni di Windows → Privacy → Microfono
+              e assicurati che le app desktop possano accedere al microfono.
+            </li>
+            <li>
+              <strong>Dispositivo corretto</strong>: in Windows, fai clic destro sull'icona del volume
+              nella barra delle applicazioni → Impostazioni audio → assicurati che il microfono giusto
+              sia selezionato come dispositivo di input.
+            </li>
+            <li>
+              <strong>Volume del microfono</strong>: nello stesso pannello, verifica che il volume del microfono
+              non sia a zero o molto basso.
+            </li>
+            <li>
+              <strong>Prova con un'altra app</strong>: prova a registrare la tua voce con il Registratore vocale
+              di Windows per verificare che il microfono funzioni in generale.
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <details>
+        <summary>Seaclic non trova gli elementi sullo schermo (modalità Trova)</summary>
+        <div class="acc-body">
+          <p>Possibili cause:</p>
+          <ul>
+            <li><strong>OCR e Immagini disattivati</strong>: verifica nelle impostazioni (scheda Riconoscimento) che OCR e/o Immagini siano attivi.</li>
+            <li><strong>Parola poco chiara</strong>: prova a pronunciare più chiaramente, o usa una parola diversa.</li>
+            <li><strong>Elemento troppo piccolo</strong>: testo molto piccolo potrebbe non essere rilevato dall'OCR. Prova a ingrandire la finestra.</li>
+            <li><strong>Monitor sbagliato</strong>: se hai più monitor, controlla che sia selezionato quello giusto nelle impostazioni (scheda Generale → Monitor).</li>
+            <li><strong>Parola in altra lingua</strong>: per gli oggetti (non testo), Seaclic traduce automaticamente dall'italiano all'inglese. Prova termini semplici.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Il tasto scorciatoia (hotkey) non funziona</summary>
+        <div class="acc-body">
+          <p>
+            Il tasto scorciatoia richiede permessi speciali per funzionare a livello di sistema.
+          </p>
+          <ul>
+            <li><strong>Esegui come amministratore</strong>: prova a eseguire Seaclic con il tasto destro → "Esegui come amministratore".</li>
+            <li><strong>Conflitti con altri programmi</strong>: un altro programma potrebbe usare lo stesso tasto. Prova con un tasto diverso (es. <kbd>F8</kbd> invece di <kbd>F5</kbd>).</li>
+            <li><strong>Tasto non supportato</strong>: alcuni tasti speciali (come i tasti multimediali) potrebbero non funzionare. Usa tasti standard (F1–F12, ecc.).</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Il gamepad virtuale non viene riconosciuto dal gioco</summary>
+        <div class="acc-body">
+          <ol>
+            <li>
+              <strong>Gamepad attivato?</strong> Verifica che "🎮 Gamepad virtuale" sia attivo nelle impostazioni (scheda Generale).
+            </li>
+            <li>
+              <strong>Driver ViGEmBus</strong>: il driver ViGEmBus deve essere installato. Se non lo è,
+              scaricalo da <a href="https://github.com/nefarius/ViGEmBus/releases" target="_blank" rel="noopener">github.com/nefarius/ViGEmBus</a>
+              e installalo manualmente.
+            </li>
+            <li>
+              <strong>Riavvia il gioco</strong>: alcuni giochi rilevano i controller solo all'avvio.
+              Avvia Seaclic e attiva il gamepad <em>prima</em> di avviare il gioco.
+            </li>
+            <li>
+              <strong>Verifica in Windows</strong>: apri "Pannello di controllo" → "Dispositivi e stampanti"
+              → dovresti vedere un "Xbox 360 Controller for Windows" virtuale.
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <details>
+        <summary>Il gamepad crea conflitti o il gioco "vede" un controller indesiderato</summary>
+        <div class="acc-body">
+          <p>
+            Se un gioco si comporta in modo strano perché rileva il gamepad virtuale di Seaclic
+            (ad esempio, cambia automaticamente i prompt da tastiera a controller):
+          </p>
+          <ul>
+            <li>Disattiva "🎮 Gamepad virtuale" nelle impostazioni generali.</li>
+            <li>Il gamepad verrà disconnesso immediatamente.</li>
+            <li>Puoi riattivarlo quando ti serve, senza riavviare Seaclic.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>La webcam non funziona per il tracking</summary>
+        <div class="acc-body">
+          <ul>
+            <li><strong>Webcam già in uso</strong>: chiudi altri programmi che usano la webcam (Zoom, Teams, Skype, ecc.).</li>
+            <li><strong>Indice webcam errato</strong>: se hai più di una webcam, prova a cambiare il numero nelle impostazioni Tracking (0, 1, 2...).</li>
+            <li><strong>Driver webcam</strong>: verifica che la webcam funzioni con altre app (es. l'app Fotocamera di Windows).</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Il tracking non risponde bene / è impreciso</summary>
+        <div class="acc-body">
+          <ol>
+            <li><strong>Calibra</strong>: esegui la calibrazione guidata dalle impostazioni Tracking.</li>
+            <li><strong>Illuminazione</strong>: assicurati che il tuo viso sia ben illuminato, senza controluce.</li>
+            <li><strong>Regola i parametri</strong>:
+              <ul>
+                <li>Se il tracking è troppo sensibile → <strong>abbassa la sensibilità</strong> e <strong>aumenta la dead zone</strong>.</li>
+                <li>Se il tracking è poco reattivo → <strong>alza la sensibilità</strong> e <strong>riduci lo smoothing</strong>.</li>
+                <li>Se il tracking "trema" → <strong>aumenta lo smoothing</strong> (5–7).</li>
+              </ul>
+            </li>
+            <li><strong>Ricentra</strong>: se il punto neutro si è spostato, usa la ricentratura (comando vocale o hotkey).</li>
+          </ol>
+        </div>
+      </details>
+
+      <details>
+        <summary>Il primo avvio è molto lento</summary>
+        <div class="acc-body">
+          <p>
+            Al primo avvio, Seaclic scarica i modelli di intelligenza artificiale (circa 900 MB).
+            È normale che ci vogliano alcuni minuti, a seconda della velocità della connessione Internet.
+            I modelli vengono salvati in cache e non verranno più scaricati.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Seaclic non si avvia / si chiude subito</summary>
+        <div class="acc-body">
+          <ul>
+            <li><strong>Antivirus</strong>: alcuni antivirus bloccano programmi che usano hook di tastiera o simulazione input. Prova ad aggiungere Seaclic alle eccezioni.</li>
+            <li><strong>File corrotto</strong>: prova a reinstallare Seaclic.</li>
+            <li><strong>Permessi</strong>: prova a eseguire come amministratore.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Il Broadlink RM4 Mini non viene trovato</summary>
+        <div class="acc-body">
+          <ul>
+            <li><strong>Stessa rete</strong>: il Broadlink e il computer devono essere sulla stessa rete Wi-Fi.</li>
+            <li><strong>IP corretto</strong>: verifica l'indirizzo IP del Broadlink nell'app e-Control o Broadlink sul telefono, e inseriscilo nelle impostazioni di Seaclic.</li>
+            <li><strong>Firewall</strong>: il firewall di Windows potrebbe bloccare la comunicazione. Prova a creare un'eccezione per Seaclic.</li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ══════════════════════════════════════════════════ -->
+  <section class="section" id="faq">
+    <h2>❓ Domande frequenti</h2>
+
+    <div class="accordion">
+
+      <details>
+        <summary>Seaclic funziona senza Internet?</summary>
+        <div class="acc-body">
+          <p>
+            <strong>In parte</strong>. Il motore vocale <strong>CapisciAMe</strong> e <strong>Google</strong>
+            richiedono entrambi una connessione Internet per il riconoscimento vocale.
+            Tuttavia, il tracking facciale e il controllo gamepad funzionano completamente offline.
+          </p>
+          <p>
+            Nota: i modelli di intelligenza artificiale (OCR e Object Detection) vengono scaricati
+            solo al primo avvio. Una volta in cache, funzionano senza Internet.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Posso usare Seaclic con qualunque lingua?</summary>
+        <div class="acc-body">
+          <p>
+            Seaclic è progettato per l'<strong>italiano</strong>. Il riconoscimento vocale è configurato
+            per la lingua italiana. L'interfaccia e i comandi sono in italiano.
+            L'OCR può leggere testo in qualunque lingua, ma il riconoscimento vocale e la traduzione
+            per la ricerca oggetti funzionano solo dall'italiano.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Serve una scheda video potente?</summary>
+        <div class="acc-body">
+          <p>
+            Una scheda video <strong>NVIDIA con supporto CUDA</strong> è raccomandata per velocizzare
+            l'OCR e l'Object Detection (modalità Trova). Senza GPU, queste funzioni usano la CPU
+            e sono più lente.
+          </p>
+          <p>
+            Le modalità <strong>Mouse</strong>, <strong>Comandi</strong> e <strong>Tracking</strong>
+            funzionano perfettamente anche senza GPU dedicata.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Posso usare Seaclic insieme ad altri programmi?</summary>
+        <div class="acc-body">
+          <p>
+            <strong>Sì!</strong> Seaclic è progettato per funzionare in background.
+            Il tasto scorciatoia funziona anche quando un altro programma è in primo piano.
+            Il gamepad virtuale viene riconosciuto come un controller fisico da qualunque gioco.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Quanti comandi vocali posso creare?</summary>
+        <div class="acc-body">
+          <p>
+            Non c'è un limite tecnico al numero di comandi. Tuttavia, più comandi hai con parole simili,
+            più possibilità ci sono che Seaclic confonda un comando con un altro. Come regola pratica,
+            cerca di usare parole <strong>brevi e distinte</strong> tra loro.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I miei dati vocali vengono registrati o inviati da qualche parte?</summary>
+        <div class="acc-body">
+          <p>
+            L'audio viene inviato al motore di riconoscimento scelto (CapisciAMe o Google) per essere
+            convertito in testo. <strong>Seaclic non registra</strong> né salva l'audio sul computer.
+            Le impostazioni e i profili sono salvati localmente nel tuo PC e non vengono condivisi.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Posso usare il tracking senza il gamepad virtuale?</summary>
+        <div class="acc-body">
+          <p>
+            <strong>Sì!</strong> Puoi configurare le direzioni del tracking per premere tasti della tastiera
+            (es. W/A/S/D) invece di usare il gamepad. In questo caso non hai bisogno di attivare
+            il gamepad virtuale.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Come faccio a condividere la mia configurazione con un'altra persona?</summary>
+        <div class="acc-body">
+          <p>
+            Usa la funzione <strong>Esporta profilo</strong> nella scheda Comandi delle impostazioni.
+            Il profilo viene salvato come file JSON che puoi inviare per email, chiavetta USB, ecc.
+            L'altra persona può usare <strong>Importa profilo</strong> per caricarlo nel suo Seaclic.
+          </p>
+          <p>
+            Le impostazioni generali (schede Generale, Riconoscimento, Ascolto, Mouse, Tracking)
+            non vengono esportate con il profilo comandi — vanno configurate manualmente.
+          </p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ═══ CONTATTI ═════════════════════════════════════════════ -->
+  <section class="section" id="contatti">
+    <h2>📞 Hai bisogno di aiuto?</h2>
+    <p>
+      Se il tuo problema non è tra quelli elencati, puoi contattare il team di sviluppo
+      tramite <a href="https://www.asphi.it/" target="_blank" rel="noopener">Fondazione ASPHI ETS</a>.
+    </p>
+    <div class="info-box info-box--success">
+      <strong>✅ Prima di contattarci</strong>
+      <ul style="margin-top:.5rem">
+        <li>Attiva la <strong>modalità debug</strong> nelle impostazioni avanzate.</li>
+        <li>Riproduci il problema.</li>
+        <li>Annota il messaggio di errore eventuale.</li>
+        <li>Indica quale versione di Seaclic stai usando (visibile nella finestra principale).</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <p>
+    <strong>Seaclic</strong> v2.5 "Sunset" · Sviluppato da
+    <a href="https://www.asphi.it/" target="_blank" rel="noopener">Fondazione ASPHI ETS</a>
+  </p>
+  <p style="margin-top:.5rem">
+    <a href="index.html">Home</a> · <a href="guida.html">Guida</a> · <a href="modalita.html">Modalità</a> ·
+    <a href="comandi.html">Comandi</a> · <a href="tracking.html">Tracking</a> · <a href="impostazioni.html">Impostazioni</a>
+  </p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
