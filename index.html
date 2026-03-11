@@ -4,14 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seaclic — Controlla il computer con la voce</title>
-  <meta name="description" content="Seaclic è un assistente vocale per l'accessibilità: controlla il PC con la voce, cerca elementi sullo schermo, muovi il cursore, usa comandi personalizzati e tracciamento facciale.">
+  <meta name="description" content="Seaclic è un assistente vocale per l'accessibilità che usa il riconoscimento vocale CapisciAMe di Davide Mulfari: controlla il PC con la voce, cerca elementi sullo schermo, muovi il cursore, usa comandi personalizzati e tracciamento facciale.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Vai al contenuto principale</a>
+
 <!-- ═══ NAVIGAZIONE ══════════════════════════════════════════ -->
 <nav class="nav" role="navigation" aria-label="Navigazione principale">
   <div class="nav__inner">
+    <a class="nav__asphi" href="https://www.asphi.it/" target="_blank" rel="noopener" aria-label="Fondazione ASPHI ETS"><img src="img/ASPHI_logo.svg" alt="ASPHI" class="nav__logo"></a>
     <a class="nav__brand" href="index.html">🌅 Seaclic <span>Sunset</span></a>
     <button class="nav__toggle" aria-label="Apri menu" aria-expanded="false">☰</button>
     <ul class="nav__links" role="list">
@@ -26,6 +29,8 @@
   </div>
 </nav>
 
+<main id="main-content">
+
 <!-- ═══ HERO ═════════════════════════════════════════════════ -->
 <header class="hero">
   <div class="hero__badges">
@@ -37,7 +42,11 @@
   <h1>🌅 <span>Seaclic</span></h1>
   <p class="hero__sub">
     Controlla il tuo computer usando solo la <strong>voce</strong> e i <strong>movimenti della testa</strong>.
-    Cerca elementi sullo schermo, muovi il cursore, esegui macro e gioca ai videogiochi — tutto senza toccare mouse o tastiera.
+    Il riconoscimento vocale supporta l'utilizzo di
+    <a href="https://www.maketocare.it/story/capisciame" target="_blank" rel="noopener" style="color:var(--clr-sunset-5)"><strong>CapisciAMe</strong></a>,
+    il servizio ideato da <strong>Davide Mulfari</strong> per comprendere il parlato italiano di persone con disartria.
+    Cerca elementi sullo schermo, muovi il cursore, esegui macro personalizzate e gioca ai videogiochi:
+    tutto senza toccare mouse o tastiera.
   </p>
   <a class="hero__cta" href="guida.html">📖 Inizia qui — Guida rapida</a>
 </header>
@@ -45,7 +54,7 @@
 <!-- ═══ LE 4 MODALITÀ ════════════════════════════════════════ -->
 <section class="container section">
   <h2 class="text-center" style="margin-bottom:1.5rem">Quattro modalità, infinite possibilità</h2>
-  <p class="text-center text-muted" style="max-width:600px;margin:0 auto 2rem">
+  <p class="text-muted" style="max-width:600px;margin:0 auto 2rem">
     Seaclic offre quattro modi diversi per interagire col PC. Puoi attivarli tutti insieme o usarli singolarmente, in base alle tue esigenze.
   </p>
 
@@ -199,6 +208,8 @@
   </p>
   <a class="hero__cta" href="guida.html">📖 Guida rapida</a>
 </section>
+
+</main>
 
 <!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
 <footer class="footer">
