@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seaclic — Controlla il computer con la voce</title>
-  <meta name="description" content="Seaclic è un assistente vocale per l'accessibilità che usa il riconoscimento vocale CapisciAMe di Davide Mulfari: controlla il PC con la voce, cerca elementi sullo schermo, muovi il cursore, usa comandi personalizzati e tracciamento facciale.">
+  <meta name="description" content="Seaclic è un assistente vocale per l'accessibilità che usa il riconoscimento vocale CapisciAMe di Davide Mulfari: controlla il PC con la voce, cerca elementi sullo schermo, muovi il cursore, usa comandi personalizzati, tracciamento facciale e tracciamento oculare (eye tracking).">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -41,24 +41,25 @@
   </div>
   <h1>🌅 <span>Seaclic</span></h1>
   <p class="hero__sub">
-    Controlla il tuo computer usando solo la <strong>voce</strong> e i <strong>movimenti della testa</strong>.
+    Controlla il tuo computer usando solo la <strong>voce</strong>, i <strong>movimenti della testa</strong>
+    e lo <strong>sguardo</strong>.
     Il riconoscimento vocale supporta l'utilizzo di
     <a href="https://www.maketocare.it/story/capisciame" target="_blank" rel="noopener" style="color:var(--clr-sunset-5)"><strong>CapisciAMe</strong></a>,
     il servizio ideato da <strong>Davide Mulfari</strong> per comprendere il parlato italiano di persone con disartria.
-    Cerca elementi sullo schermo, muovi il cursore, esegui macro personalizzate e gioca ai videogiochi:
-    tutto senza toccare mouse o tastiera.
+    Cerca elementi sullo schermo, muovi il cursore, esegui macro personalizzate, gioca ai videogiochi
+    e controlla il PC con gli occhi — tutto senza toccare mouse o tastiera.
   </p>
   <a class="hero__cta" href="guida.html">📖 Inizia qui — Guida rapida</a>
 </header>
 
 <!-- ═══ LE 4 MODALITÀ ════════════════════════════════════════ -->
 <section class="container section">
-  <h2 class="text-center" style="margin-bottom:1.5rem">Quattro modalità, infinite possibilità</h2>
+  <h2 class="text-center" style="margin-bottom:1.5rem">Cinque modalità, infinite possibilità</h2>
   <p class="text-muted" style="max-width:600px;margin:0 auto 2rem">
-    Seaclic offre quattro modi diversi per interagire col PC. Puoi attivarli tutti insieme o usarli singolarmente, in base alle tue esigenze.
+    Seaclic offre cinque modi diversi per interagire col PC. Puoi attivarli tutti insieme o usarli singolarmente, in base alle tue esigenze.
   </p>
 
-  <div class="cards cards--4">
+  <div class="cards cards--5">
     <div class="card">
       <div class="card__icon">🔍</div>
       <div class="card__title">Trova</div>
@@ -87,6 +88,13 @@
         Muovi la testa davanti alla webcam per controllare il cursore, lo stick di un gamepad virtuale o premere tasti direzionali.
       </p>
     </div>
+    <div class="card">
+      <div class="card__icon">👁</div>
+      <div class="card__title">Gaze</div>
+      <p class="card__text">
+        Controlla il mouse con lo sguardo tramite webcam o eye tracker Tobii ET5. Attiva bottoni sullo schermo fissandoli e clicca ammiccando.
+      </p>
+    </div>
   </div>
 
   <p class="text-center" style="margin-top:1.5rem">
@@ -107,7 +115,7 @@
     <div class="step">
       <div class="step__body">
         <h3>Scegli le modalità che ti servono</h3>
-        <p>Attiva una o più modalità: Trova per cliccare sugli elementi, Mouse per muovere il cursore, Comandi per le tue macro, Tracking per i movimenti della testa.</p>
+        <p>Attiva una o più modalità: Trova per cliccare sugli elementi, Mouse per muovere il cursore, Comandi per le tue macro, Tracking per i movimenti della testa, Gaze per controllare col lo sguardo.</p>
       </div>
     </div>
     <div class="step">
@@ -136,6 +144,8 @@
         Grazie alla tecnologia <strong>OCR</strong> (riconoscimento testo) e all'intelligenza artificiale
         <strong>GroundingDINO</strong> (riconoscimento oggetti), Seaclic può trovare qualunque cosa visibile sullo schermo.
         Basta dire il nome di un pulsante, un'icona o un testo e il programma lo individua e ci clicca sopra.
+        In alternativa, puoi usare il backend <strong>Azure Vision</strong> (LLM multimodale cloud)
+        che comprende l'<em>intento</em> dietro le tue parole — ad esempio, dire "chiudi Word" troverà il pulsante ✕.
       </p>
     </div>
     <div class="feature-row__media">🔍🖥️</div>
@@ -175,6 +185,19 @@
     </div>
     <div class="feature-row__media">🏠📡</div>
   </div>
+
+  <div class="feature-row">
+    <div class="feature-row__content">
+      <h3>👁 Tracciamento oculare (Eye Tracking)</h3>
+      <p>
+        La modalità <strong>Gaze</strong> usa la webcam o un <strong>Tobii Eye Tracker 5</strong>
+        per seguire il tuo sguardo e spostare il cursore sullo schermo.
+        I bottoni <strong>Eye Button</strong> appaiono sullo schermo e si attivano quando li fissi per un istante (<em>dwell</em>).
+        Puoi anche cliccare <strong>ammiccando</strong> un singolo occhio — senza toccare nulla.
+      </p>
+    </div>
+    <div class="feature-row__media">👁🖱️</div>
+  </div>
 </section>
 
 <!-- ═══ A CHI È RIVOLTO ══════════════════════════════════════ -->
@@ -186,14 +209,14 @@
       <div class="card__title">Accessibilità</div>
       <p class="card__text">
         Pensato per chi ha difficoltà a usare mouse e tastiera. Permette di controllare il computer
-        in modo completamente alternativo, usando la voce e i movimenti del capo.
+        in modo completamente alternativo, usando la voce, i movimenti del capo e lo sguardo.
       </p>
     </div>
     <div class="card">
       <div class="card__icon">🎮</div>
       <div class="card__title">Videogiochi accessibili</div>
       <p class="card__text">
-        Il gamepad virtuale e il face tracking permettono di giocare a qualunque videogioco
+        Il gamepad virtuale, il face tracking e l'eye tracking permettono di giocare a qualunque videogioco
         che supporti un controller — senza toccare nessun dispositivo fisico.
       </p>
     </div>

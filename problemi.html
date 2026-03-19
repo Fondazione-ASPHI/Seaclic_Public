@@ -195,9 +195,49 @@
         <div class="acc-body">
           <ul>
             <li><strong>Stessa rete</strong>: il Broadlink e il computer devono essere sulla stessa rete Wi-Fi.</li>
-            <li><strong>IP corretto</strong>: verifica l'indirizzo IP del Broadlink nell'app e-Control o Broadlink sul telefono, e inseriscilo nelle impostazioni di Seaclic.</li>
+            <li><strong>IP corretto</strong>: verifica l'indirizzo IP del Broadlink nell'app e-Control o Broadlink sul telefono, e inseriscilo nelle impostazioni di Seaclic (scheda Broadlink).</li>
             <li><strong>Firewall</strong>: il firewall di Windows potrebbe bloccare la comunicazione. Prova a creare un'eccezione per Seaclic.</li>
+            <li><strong>Broadlink abilitato</strong>: verifica che il toggle "Abilita Broadlink" sia attivo nella scheda Broadlink delle impostazioni.</li>
+            <li><strong>Timeout</strong>: se la rete è lenta, prova ad aumentare il timeout di connessione.</li>
           </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Il tracciamento oculare (Gaze) non funziona</summary>
+        <div class="acc-body">
+          <ul>
+            <li><strong>Dispositivo selezionato</strong>: verifica nelle impostazioni (scheda Gaze) che sia selezionato il dispositivo corretto. Usa il pulsante "Scan" per cercare i dispositivi.</li>
+            <li><strong>Calibrazione</strong>: se usi la webcam, esegui la calibrazione a 9 punti. Senza calibrazione la precisione sarà molto bassa.</li>
+            <li><strong>Webcam condivisa</strong>: se usi la stessa webcam per tracking e gaze, le due modalità condividono le risorse automaticamente. Verifica che il tracking funzioni correttamente.</li>
+            <li><strong>Tobii non rilevato</strong>: per il Tobii ET5, verifica che il software Tobii Experience sia installato e che il dispositivo sia collegato.</li>
+            <li><strong>Illuminazione</strong>: come per il tracking, il viso deve essere ben illuminato.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Gli Eye Button non si attivano</summary>
+        <div class="acc-body">
+          <ul>
+            <li><strong>Gaze attivo</strong>: i bottoni si attivano solo quando la modalità Gaze è in esecuzione.</li>
+            <li><strong>Dwell time</strong>: se il tempo di attivazione è troppo breve, potresti attivare i bottoni involontariamente. Se è troppo lungo, potrebbe sembrare che non funzionino. Regola il dwell time nelle impostazioni Gaze.</li>
+            <li><strong>Bottone abilitato</strong>: verifica che il toggle "Abilitato" sia attivo sulla card del bottone nelle impostazioni.</li>
+            <li><strong>Calibrazione</strong>: se lo sguardo non punta nella posizione giusta, i bottoni non verranno attivati. Ricalibra.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Il backend Azure Vision non funziona (modalità Trova)</summary>
+        <div class="acc-body">
+          <ol>
+            <li><strong>Credenziali</strong>: verifica che endpoint e API key siano inseriti correttamente nelle impostazioni (scheda Riconoscimento).</li>
+            <li><strong>Testa connessione</strong>: usa il pulsante "Testa connessione" per verificare che le credenziali funzionino.</li>
+            <li><strong>Connessione Internet</strong>: il backend Azure richiede una connessione a Internet attiva.</li>
+            <li><strong>Quota esaurita</strong>: se hai superato la quota del tuo endpoint Azure, le richieste falliranno. Controlla il portale Azure.</li>
+            <li><strong>Backend selezionato</strong>: verifica che "Azure Vision" sia selezionato come backend Trova (non "Locale").</li>
+          </ol>
         </div>
       </details>
 
@@ -290,8 +330,42 @@
         <div class="acc-body">
           <p>
             <strong>Sì!</strong> Puoi configurare le direzioni del tracking per premere tasti della tastiera
-            (es. W/A/S/D) invece di usare il gamepad. In questo caso non hai bisogno di attivare
-            il gamepad virtuale.
+            (es. W/A/S/D) o per muovere il puntatore del mouse invece di usare il gamepad. In questo caso
+            non hai bisogno di attivare il gamepad virtuale.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Qual è la differenza tra Gaze e Tracking?</summary>
+        <div class="acc-body">
+          <p>
+            Il <strong>Tracking</strong> segue i movimenti della <em>testa</em> (girarla, inclinarla)
+            e li converte in input. Il <strong>Gaze</strong> segue il punto che stai <em>guardando</em>
+            con gli occhi e sposta il cursore o attiva bottoni a schermo. Sono due modalità indipendenti
+            che possono coesistere sulla stessa webcam.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Posso usare Gaze e Tracking insieme sulla stessa webcam?</summary>
+        <div class="acc-body">
+          <p>
+            <strong>Sì!</strong> Quando entrambe le modalità usano la stessa webcam, Seaclic condivide
+            automaticamente le risorse (camera e modello face detection). Il face tracking pubblica
+            i dati di rilevamento e il gaze provider li legge passivamente, senza conflitti.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Serve un eye tracker dedicato per usare la modalità Gaze?</summary>
+        <div class="acc-body">
+          <p>
+            <strong>No.</strong> La modalità Gaze funziona anche con una semplice webcam, grazie al tracciamento
+            iris di MediaPipe. L'eye tracker Tobii ET5 è supportato per una maggiore precisione,
+            ma non è obbligatorio.
           </p>
         </div>
       </details>

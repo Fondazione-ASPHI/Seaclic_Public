@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le 4 modalità — Seaclic</title>
-  <meta name="description" content="Spiegazione dettagliata delle quattro modalità operative di Seaclic: Trova, Mouse, Comandi e Tracking.">
+  <title>Le 5 modalità — Seaclic</title>
+  <meta name="description" content="Spiegazione dettagliata delle cinque modalità operative di Seaclic: Trova, Mouse, Comandi, Tracking e Gaze.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,8 +31,8 @@
 <main id="main-content">
 
 <header class="page-header">
-  <h1>📋 Le quattro modalità</h1>
-  <p>Seaclic ha quattro modi diversi per aiutarti: puoi usarli singolarmente o tutti insieme.</p>
+  <h1>📋 Le cinque modalità</h1>
+  <p>Seaclic ha cinque modi diversi per aiutarti: puoi usarli singolarmente o tutti insieme.</p>
 </header>
 
 <div class="container">
@@ -42,11 +42,11 @@
 
   <div class="info-box">
     <strong>💡 Le modalità sono indipendenti</strong>
-    Puoi attivare una, due, tre o tutte e quattro le modalità contemporaneamente.
+    Puoi attivare una, due, tre o tutte e cinque le modalità contemporaneamente.
     Ogni modalità ha il suo pulsante nella finestra principale.
-    Quando più modalità sono attive, i comandi vocali seguono questo ordine di priorità:
+    Quando più modalità vocali sono attive, i comandi vocali seguono questo ordine di priorità:
     <strong>Comandi</strong> → <strong>Mouse</strong> → <strong>Trova</strong>.
-    Il <strong>Tracking</strong> funziona sempre in parallelo.
+    Il <strong>Tracking</strong> e il <strong>Gaze</strong> funzionano sempre in parallelo, indipendentemente dalle modalità vocali.
   </div>
 
   <!-- ═══ TROVA ════════════════════════════════════════════════ -->
@@ -105,6 +105,15 @@
       <strong>✅ Supporto multi-monitor</strong>
       Se hai più di un monitor, puoi scegliere su quale schermo cercare (oppure cercare su tutti
       in sequenza) dalle impostazioni.
+    </div>
+
+    <div class="info-box">
+      <strong>💡 Backend alternativo: Azure Vision</strong>
+      Oltre alla ricerca locale (OCR + GroundingDINO), puoi usare il backend <strong>Azure Vision</strong>
+      che invia uno screenshot a un LLM multimodale cloud (es. GPT-4.1). Il vantaggio è che l'LLM
+      può <em>ragionare sull'intento</em>: se dici "chiudi Word", troverà il pulsante ✕ anche senza
+      dover pronunciare il nome esatto. Richiede una connessione Internet e credenziali Azure.
+      Selezionabile nelle <a href="impostazioni.html#riconoscimento">impostazioni</a> (scheda Riconoscimento).
     </div>
 
     <h3>Consigli per ottenere i migliori risultati</h3>
@@ -242,6 +251,11 @@
             <td>W/A/S/D per i videogiochi</td>
           </tr>
           <tr>
+            <td><strong>Puntatore mouse</strong></td>
+            <td>Muovi la testa per spostare il cursore del mouse proporzionalmente</td>
+            <td>Navigazione web, uso del desktop</td>
+          </tr>
+          <tr>
             <td><strong>Pulsante gamepad</strong></td>
             <td>Come il tasto tastiera, ma con un pulsante del controller</td>
             <td>D-Pad del controller</td>
@@ -267,6 +281,15 @@
       e il tuo range di movimento. Trovi tutti i dettagli nella pagina <a href="tracking.html">Tracking</a>.
     </div>
 
+    <div class="info-box info-box--success">
+      <strong>✅ Profili di tracking</strong>
+      Come per i comandi vocali, anche il tracking supporta i <strong>profili</strong>.
+      Seaclic include quattro profili predefiniti: <strong>Default</strong> (WASD tastiera),
+      <strong>Mouse</strong> (puntatore del mouse), <strong>Corse</strong> (acceleratore/freno con i trigger)
+      e <strong>3D-Movement</strong> (joystick analogico). Puoi crearne di nuovi, duplicarli,
+      esportarli e importarli.
+    </div>
+
     <h3>Il tracking funziona in parallelo</h3>
     <p>
       Il tracking facciale funziona <strong>indipendentemente</strong> dalle altre modalità.
@@ -274,7 +297,66 @@
       la voce per premere i pulsanti — combinando Tracking + Comandi per un'esperienza di gioco completa.
     </p>
   </section>
+  <!-- ═══ GAZE ═══════════════════════════════════════════════════════════ -->
+  <section class="section" id="gaze">
+    <h2>👁 Modalità Gaze (Eye Tracking)</h2>
 
+    <p>
+      La modalità Gaze usa il <strong>tracciamento oculare</strong> per controllare il computer con lo sguardo.
+      Supporta due tipi di hardware: una semplice <strong>webcam</strong> (tramite MediaPipe Iris) oppure
+      un eye tracker dedicato <strong>Tobii Eye Tracker 5</strong>.
+    </p>
+
+    <h3>Cosa puoi fare con lo sguardo</h3>
+
+    <div class="cards cards--2">
+      <div class="card">
+        <div class="card__icon">🖱️</div>
+        <div class="card__title">Spostare il cursore</div>
+        <p class="card__text">
+          Il cursore del mouse segue il punto che stai guardando sullo schermo.
+          Un algoritmo di smoothing rende il movimento fluido e stabile.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card__icon">🎮</div>
+        <div class="card__title">Controllare il gamepad</div>
+        <p class="card__text">
+          Lo sguardo può controllare un joystick analogico o il D-Pad digitale
+          del controller virtuale XBox 360.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card__icon">👁</div>
+        <div class="card__title">Eye Button (bottoni a schermo)</div>
+        <p class="card__text">
+          Bottoni personalizzabili che appaiono sullo schermo. Fissa un bottone per un istante (<em>dwell</em>)
+          per attivare la sua azione: premere un tasto, un click, un pulsante gamepad e molto altro.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card__icon">😉</div>
+        <div class="card__title">Blink-Click (ammiccamento)</div>
+        <p class="card__text">
+          Chiudi volontariamente un solo occhio per simulare un click sinistro nella posizione
+          che stai guardando. I battiti di ciglia normali vengono ignorati automaticamente.
+        </p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>💡 Calibrazione consigliata (webcam)</strong>
+      Se usi la webcam come sorgente, esegui la <strong>calibrazione a 9 punti</strong> per ottenere
+      la massima precisione. Con il Tobii ET5 la calibrazione è gestita dal software Tobii.
+    </div>
+
+    <h3>Il gaze funziona in parallelo</h3>
+    <p>
+      Come il tracking, anche il gaze opera in un <strong>thread indipendente</strong> a ~30 FPS.
+      Puoi combinare gaze + comandi vocali, oppure gaze + tracking sulla stessa webcam:
+      le due modalità condividono le risorse senza conflitti.
+    </p>
+  </section>
   <!-- ═══ COMBINARE LE MODALITÀ ════════════════════════════════ -->
   <section class="section" id="combinare">
     <h2>🔗 Combinare le modalità</h2>
@@ -312,6 +394,22 @@
         <p class="card__text">
           <strong>Comandi (IR) + Mouse</strong>: controlla il PC con il mouse vocale e usa
           i comandi IR per accendere la TV, cambiare canale, ecc.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card__icon">👁</div>
+        <div class="card__title">Sguardo + Voce</div>
+        <p class="card__text">
+          <strong>Gaze + Comandi</strong>: muovi il cursore con gli occhi e usa gli Eye Button
+          o i comandi vocali per le azioni. Ideale per chi non può muovere la testa.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card__icon">👁‍🗨</div>
+        <div class="card__title">Gaze + Tracking</div>
+        <p class="card__text">
+          <strong>Gaze + Tracking</strong>: condividi la stessa webcam tra eye tracking e face tracking.
+          Lo sguardo muove il cursore, la testa controlla il gamepad.
         </p>
       </div>
     </div>

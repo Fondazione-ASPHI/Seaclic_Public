@@ -194,10 +194,49 @@
       <li><strong>Sensibilità</strong>: quanto deve essere ampio il movimento per generare input.</li>
       <li><strong>Dead zone</strong>: quanta "zona morta" c'è attorno alla posizione neutra.</li>
       <li><strong>Smoothing</strong>: quanto viene smussato il movimento (per evitare tremolii).</li>
+      <li><strong>Velocità mouse</strong>: velocità del cursore quando si usa il tipo "puntatore mouse".</li>
     </ul>
+
+    <h3>Profili predefiniti</h3>
+    <p>Seaclic include quattro profili già configurati per le situazioni più comuni:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Profilo</th><th>Tipo azione</th><th>Mappatura</th><th>Ideale per</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Default</strong></td><td>Tastiera</td><td>W/A/S/D</td><td>Giochi con tastiera, navigazione</td></tr>
+          <tr><td><strong>Mouse</strong></td><td>Puntatore mouse</td><td>Muove il cursore</td><td>Uso del desktop, navigazione web</td></tr>
+          <tr><td><strong>Corse</strong></td><td>Trigger analogico</td><td>RT (accelera) / LT (frena)</td><td>Giochi di corsa</td></tr>
+          <tr><td><strong>3D-Movement</strong></td><td>Joystick analogico</td><td>Stick sinistro X/Y</td><td>Giochi 3D, sparatutto</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Gestire i profili</h3>
+    <p>
+      Dalla scheda <strong>Tracking</strong> nelle impostazioni, puoi:
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Pulsante</th><th>Cosa fa</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Nuovo</strong></td><td>Crea un nuovo profilo con mappatura WASD di default.</td></tr>
+          <tr><td><strong>Rinomina</strong></td><td>Cambia il nome del profilo selezionato.</td></tr>
+          <tr><td><strong>Duplica</strong></td><td>Crea una copia del profilo attuale.</td></tr>
+          <tr><td><strong>Elimina</strong></td><td>Elimina il profilo selezionato (deve restarne almeno uno).</td></tr>
+          <tr><td><strong>Esporta</strong></td><td>Salva il profilo come file JSON condivisibile.</td></tr>
+          <tr><td><strong>Importa</strong></td><td>Carica un profilo da un file JSON.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
     <p>
       Puoi creare profili diversi per giochi diversi: uno con alta sensibilità per un gioco d'azione,
-      uno con bassa sensibilità per un gioco di precisione.
+      uno con bassa sensibilità per un gioco di precisione, uno che muove il mouse per navigare.
     </p>
   </section>
 
@@ -221,6 +260,11 @@
             <td>Testa a sinistra → preme <kbd>A</kbd></td>
           </tr>
           <tr>
+            <td><strong>🖱️ Puntatore mouse</strong></td>
+            <td>Il cursore del mouse si muove proporzionalmente al movimento della testa. Più inclini la testa, più veloce si muove il cursore.</td>
+            <td>Navigazione web, uso del desktop</td>
+          </tr>
+          <tr>
             <td><strong>🔘 Pulsante gamepad</strong></td>
             <td>Come la tastiera, ma con un pulsante del controller (include anche i trigger LT/RT in modalità "digitale").</td>
             <td>Testa in su → preme D-Pad Su</td>
@@ -241,8 +285,8 @@
 
     <div class="info-box">
       <strong>💡 Soglia di attivazione</strong>
-      Per i tipi "digitali" (tastiera e pulsante gamepad), c'è uno slider <strong>Soglia</strong> che determina
-      quanto devi muovere la testa prima che il tasto venga premuto. Questo evita attivazioni accidentali
+      Per i tipi "digitali" (tastiera, pulsante gamepad e puntatore mouse), c'è uno slider <strong>Soglia</strong> che determina
+      quanto devi muovere la testa prima che il tasto venga premuto o il cursore inizi a muoversi. Questo evita attivazioni accidentali
       con piccoli movimenti.
     </div>
   </section>
@@ -286,6 +330,15 @@
           Se la tua testa si è spostata dalla posizione originale, puoi ricentrare il tracking
           con un comando vocale ("ricentra") o un tasto scorciatoia.
           Il punto neutro viene aggiornato alla posizione attuale della testa.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card__icon">🖱️</div>
+        <div class="card__title">Velocità mouse (1–100)</div>
+        <p class="card__text">
+          Velocità del cursore quando almeno una direzione usa il tipo "Puntatore mouse".
+          Controlla quanto si sposta il cursore in rapporto al movimento della testa.
+          Questo parametro è salvato per profilo.
         </p>
       </div>
     </div>

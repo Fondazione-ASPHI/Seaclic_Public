@@ -157,7 +157,9 @@ li { margin-bottom: .4em; }
 /* ── Cards ─────────────────────────────────────────────────── */
 .cards { display: grid; gap: 1.5rem; }
 .cards--2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.cards--3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .cards--4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.cards--5 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
 .card {
   background: var(--clr-surface);
   border: 1px solid var(--clr-border);

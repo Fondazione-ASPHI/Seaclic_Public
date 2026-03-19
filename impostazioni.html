@@ -42,7 +42,7 @@
 
   <p>
     Per aprire le impostazioni, clicca sul pulsante <strong>⚙ Impostazioni</strong> nella finestra principale di Seaclic.
-    La finestra è organizzata in <strong>7 schede</strong>. Quando hai finito, clicca <strong>OK</strong> per salvare
+    La finestra è organizzata in <strong>9 schede</strong>. Quando hai finito, clicca <strong>OK</strong> per salvare
     oppure <strong>Annulla</strong> per tornare indietro senza modificare nulla.
   </p>
 
@@ -119,13 +119,6 @@
               Non devi premere START manualmente.
             </td>
           </tr>
-          <tr>
-            <td><strong>IP Broadlink RM4</strong></td>
-            <td>
-              Indirizzo IP del tuo Broadlink RM4 Mini sulla rete locale.
-              Necessario solo se usi i comandi IR per la domotica.
-            </td>
-          </tr>
         </tbody>
       </table>
     </div>
@@ -151,9 +144,38 @@
             </td>
           </tr>
           <tr>
+            <td><strong>Backend Trova</strong></td>
+            <td>
+              Scegli come la modalità Trova cerca gli elementi sullo schermo:<br>
+              <strong>Locale</strong> (default): OCR + GroundingDINO. Tutto sul tuo PC, funziona anche senza Internet (dopo il primo avvio). Consigliato con GPU NVIDIA.<br>
+              <strong>Azure Vision</strong>: invia uno screenshot a un LLM multimodale cloud (es. GPT-4.1). Più intelligente (capisce l'intento), ma richiede Internet e credenziali Azure.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Endpoint Azure</strong></td>
+            <td>
+              URL dell'endpoint Azure OpenAI (o compatibile). Visibile solo con backend Azure.
+              Le credenziali sono criptate sul tuo PC con Windows DPAPI e non vengono mai salvate in chiaro.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>API Key Azure</strong></td>
+            <td>
+              Chiave API per l'endpoint Azure. Criptata come l'endpoint.
+              Il pulsante 👁 permette di mostrare/nascondere la chiave.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Testa connessione</strong></td>
+            <td>
+              Pulsante per verificare che le credenziali Azure funzionino.
+              Mostra ✅ se la connessione è riuscita o ❌ con il messaggio di errore.
+            </td>
+          </tr>
+          <tr>
             <td><strong>Usa OCR (ricerca testo)</strong></td>
             <td>
-              Se attivo, la modalità Trova cerca il testo visibile sullo schermo (pulsanti, menu, scritte).
+              Se attivo, la modalità Trova (backend locale) cerca il testo visibile sullo schermo.
               <em>Disattivare solo se non ti serve</em> (riduce l'uso di risorse).
               ⚠️ Richiede riavvio di Seaclic.
             </td>
@@ -161,8 +183,8 @@
           <tr>
             <td><strong>Usa Immagini (ricerca oggetti)</strong></td>
             <td>
-              Se attivo, la modalità Trova usa l'intelligenza artificiale per cercare oggetti
-              descritti a parole (es. "bottone rosso", "orologio").
+              Se attivo, la modalità Trova (backend locale) usa l'intelligenza artificiale per cercare oggetti
+              descritti a parole.
               ⚠️ Richiede riavvio di Seaclic.
             </td>
           </tr>
@@ -172,7 +194,7 @@
 
     <div class="info-box info-box--warning">
       <strong>⚠️ Riavvio necessario</strong>
-      Cambiare OCR o Immagini richiede il riavvio di Seaclic perché i modelli di intelligenza artificiale
+      Cambiare il backend Trova, OCR o Immagini richiede il riavvio di Seaclic perché i modelli di intelligenza artificiale
       devono essere caricati o scaricati dalla memoria. Seaclic te lo segnalerà automaticamente.
     </div>
   </section>
@@ -316,6 +338,75 @@
           </tr>
           <tr>
             <td><strong>Profilo tracking</strong></td>
+            <td>
+              Seleziona il profilo tracking attivo. Ogni profilo ha parametri e comandi indipendenti.
+              Puoi creare, rinominare, duplicare, eliminare, esportare e importare profili.
+              Profili predefiniti: <strong>Default</strong> (WASD), <strong>Mouse</strong> (puntatore),
+              <strong>Corse</strong> (trigger), <strong>3D-Movement</strong> (joystick).
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Sensibilità</strong></td>
+            <td>Slider 1–100. Quanto deve essere ampio il movimento per generare il massimo input. Salvata per profilo.</td>
+          </tr>
+          <tr>
+            <td><strong>Dead zone</strong></td>
+            <td>Slider 0–50%. Zona morta attorno alla posizione neutra (ignora piccoli movimenti). Salvata per profilo.</td>
+          </tr>
+          <tr>
+            <td><strong>Smoothing</strong></td>
+            <td>Slider 1–10. Numero di frame per la media mobile. Più alto = più fluido ma meno reattivo. Salvato per profilo.</td>
+          </tr>
+          <tr>
+            <td><strong>Velocità mouse</strong></td>
+            <td>Slider 1–100. Velocità del cursore quando il tipo di azione è "Puntatore mouse". Visibile solo se almeno una direzione usa il tipo mouse. Salvata per profilo.</td>
+          </tr>
+          <tr>
+            <td><strong>Auto-drift</strong></td>
+            <td>Attiva/disattiva la compensazione automatica dei cambi di postura.</td>
+          </tr>
+          <tr>
+            <td><strong>Velocità drift</strong></td>
+            <td>Slider per la velocità di correzione dell'auto-drift.</td>
+          </tr>
+          <tr>
+            <td><strong>Secondi inattività</strong></td>
+            <td>Dopo quanti secondi fermi il drift accelera la correzione.</td>
+          </tr>
+          <tr>
+            <td><strong>Soglia freeze drift</strong></td>
+            <td>Oltre quale % di movimento il drift si congela per non interferire.</td>
+          </tr>
+          <tr>
+            <td><strong>Comandi direzionali</strong></td>
+            <td>4 card (su, giù, sinistra, destra) con tipo di azione (tastiera, puntatore mouse, pulsante gamepad, trigger, joystick), valore e soglia per ciascuna.</td>
+          </tr>
+          <tr>
+            <td><strong>Tasto ricentratura</strong></td>
+            <td>Hotkey globale per ricentrare istantaneamente il punto neutro del tracking.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+        <thead>
+          <tr><th>Impostazione</th><th>Descrizione</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Webcam</strong></td>
+            <td>Indice del dispositivo webcam da usare (0 = prima webcam, 1 = seconda, ecc.).</td>
+          </tr>
+          <tr>
+            <td><strong>Calibrazione</strong></td>
+            <td>Pulsante per avviare il wizard di calibrazione in 5 passi.</td>
+          </tr>
+          <tr>
+            <td><strong>Mostra overlay tracking</strong></td>
+            <td>Mostra/nasconde la finestra di anteprima con il video della webcam e i landmarks.</td>
+          </tr>
+          <tr>
+            <td><strong>Profilo tracking</strong></td>
             <td>Seleziona il profilo tracking attivo (ogni profilo ha parametri e comandi indipendenti).</td>
           </tr>
           <tr>
@@ -359,9 +450,133 @@
     </div>
   </section>
 
-  <!-- ═══ TAB 7: AVANZATE ═════════════════════════════════════ -->
+  <!-- ═══ TAB 7: GAZE ═════════════════════════════════════════════ -->
+  <section class="section" id="gaze">
+    <h2>👁 Scheda 7 — Gaze (Eye Tracking)</h2>
+    <p>Configurazione del tracciamento oculare.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Impostazione</th><th>Descrizione</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Dispositivo</strong></td>
+            <td>
+              Seleziona la sorgente per l'eye tracking: una webcam (MediaPipe Iris) o un Tobii Eye Tracker 5.
+              Il pulsante "🔍 Scan" cerca i dispositivi disponibili.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Calibrazione</strong></td>
+            <td>
+              Stato della calibrazione e pulsanti per avviarla (wizard fullscreen a 9 punti) o cancellarla.
+              La calibrazione è necessaria per la webcam; per il Tobii è gestita dal software Tobii.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Modalità output</strong></td>
+            <td>
+              Come viene usato lo sguardo: <strong>Mouse</strong> (sposta il cursore), <strong>Joystick gamepad</strong>
+              (controlla uno stick analogico), <strong>Pulsanti gamepad</strong> (D-Pad digitale),
+              <strong>Nessuno</strong> (solo Eye Button, nessun output diretto).
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Stick gamepad</strong></td>
+            <td>Se il modo output è gamepad, scegli quale stick controllare (sinistro o destro).</td>
+          </tr>
+          <tr>
+            <td><strong>Smoothing</strong></td>
+            <td>Slider per la finestra di smoothing (media mobile esponenziale). Più alto = più fluido ma meno reattivo.</td>
+          </tr>
+          <tr>
+            <td><strong>Dwell time</strong></td>
+            <td>Quanto tempo (in ms) devi fissare un Eye Button prima che si attivi. Default: 800 ms.</td>
+          </tr>
+          <tr>
+            <td><strong>Cooldown</strong></td>
+            <td>Pausa dopo l'attivazione di un Eye Button prima che possa riattivarsi. Default: 500 ms.</td>
+          </tr>
+          <tr>
+            <td><strong>Eye Button (lista)</strong></td>
+            <td>
+              Lista dei bottoni a schermo attivabili con lo sguardo. Ogni bottone ha un nome, un tipo di azione
+              (gli stessi dei comandi vocali: tastiera, mouse, gamepad, azione Seaclic, IR), un toggle abilita/disabilita
+              e un pulsante elimina.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Aggiungi Eye Button</strong></td>
+            <td>Crea un nuovo Eye Button con azione predefinita (click sinistro).</td>
+          </tr>
+          <tr>
+            <td><strong>Mostra/Nascondi a schermo</strong></td>
+            <td>
+              Toggle che mostra i bottoni sullo schermo in modalità di modifica (trascinabili e ridimensionabili).
+              Le posizioni vengono salvate in tempo reale.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Blink-click</strong></td>
+            <td>Se attivo, ammiccando un singolo occhio si simula un click sinistro alla posizione dello sguardo.</td>
+          </tr>
+          <tr>
+            <td><strong>Soglia blink</strong></td>
+            <td>Slider per la sensibilità del rilevamento ammiccamento (0–1).</td>
+          </tr>
+          <tr>
+            <td><strong>Mostra heatmap</strong></td>
+            <td>Overlay debug che mostra i punti recenti dello sguardo come mappa di calore. Solo in modalità debug.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ TAB 8: BROADLINK ════════════════════════════════════════ -->
+  <section class="section" id="broadlink">
+    <h2>📡 Scheda 8 — Broadlink (Domotica IR)</h2>
+    <p>Configurazione del dispositivo Broadlink RM4 Mini per il controllo domotica a infrarossi.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Impostazione</th><th>Descrizione</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Abilita Broadlink</strong></td>
+            <td>Attiva/disattiva il bridge IR. Se disattivato, i comandi IR non funzioneranno.</td>
+          </tr>
+          <tr>
+            <td><strong>IP dispositivo</strong></td>
+            <td>
+              Indirizzo IP del Broadlink RM4 Mini sulla rete locale. Se lasciato vuoto,
+              Seaclic cercherà automaticamente il dispositivo sulla rete (auto-discover).
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Timeout</strong></td>
+            <td>Secondi di attesa per la scoperta/connessione del dispositivo. Default: 5 secondi.</td>
+          </tr>
+          <tr>
+            <td><strong>Cerca</strong></td>
+            <td>Pulsante per cercare e connettere il dispositivo con le impostazioni attuali.</td>
+          </tr>
+          <tr>
+            <td><strong>Stato</strong></td>
+            <td>Mostra lo stato della connessione: ✅ Connesso (con modello e IP) oppure ❌ Non connesso.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ TAB 9: AVANZATE ═════════════════════════════════════════ -->
   <section class="section" id="avanzate">
-    <h2>🔧 Scheda 7 — Avanzate</h2>
+    <h2>🔧 Scheda 9 — Avanzate</h2>
     <p>Opzioni per utenti esperti e per la risoluzione dei problemi.</p>
 
     <div class="table-wrap">
